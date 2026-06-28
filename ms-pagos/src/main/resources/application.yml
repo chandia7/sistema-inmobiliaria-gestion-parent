@@ -1,0 +1,32 @@
+server:
+  port: 8086
+
+spring:
+  application:
+    name: ms-pagos
+
+  datasource:
+    url: jdbc:mysql://localhost:3307/db_pagos?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC&characterEncoding=UTF-8
+    username: root
+    password: 
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+  instance:
+    instance-id: ${spring.application.name}:${server.port}
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000

@@ -1,0 +1,27 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: ms-seguridad
+  
+  # Configuración de conexión a MySQL
+  datasource:
+    url: jdbc:mysql://localhost:3307/db_seguridad?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC
+    username: root
+    password: # Pon aquí tu contraseña de MySQL (si no tienes, déjalo en blanco)
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  # Configuración de JPA/Hibernate
+  jpa:
+    hibernate:
+      ddl-auto: update # Esto creará las tablas automáticamente
+    show-sql: true # Para ver las consultas en la consola
+
+# Configuración para registrarse en Eureka
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    instance-id: ${spring.application.name}:${server.port}

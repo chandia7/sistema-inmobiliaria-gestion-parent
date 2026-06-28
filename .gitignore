@@ -1,0 +1,71 @@
+# ============================================================
+#  .gitignore  -  Proyecto Maven Multi-Módulo (Spring Boot)
+#  Coloca este archivo en la RAÍZ: sistema-gestion-parent/.gitignore
+# ============================================================
+
+# ---- Compilados de Maven (lo que infla el repo) ----
+target/
+**/target/
+*.class
+
+# ---- Artefactos empaquetados: VAN A GOOGLE DRIVE, NO A GIT ----
+*.jar
+*.war
+*.ear
+*.zip
+**/apps/
+Version-Sin-Docker/apps/
+Version-Con-Docker/apps/
+
+# ---- Logs ----
+*.log
+logs/
+spring.log
+
+# ---- Datos locales de bases de datos (NO subir) ----
+*.db
+data/
+db-data/
+mysql-data/
+*.sql.bak
+
+# ---- Variables de entorno sensibles (credenciales) ----
+.env
+*.env
+application-local.properties
+application-local.yml
+
+# ---- IntelliJ IDEA ----
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# ---- Eclipse / Spring Tool Suite ----
+.classpath
+.project
+.settings/
+.factorypath
+bin/
+
+# ---- VS Code ----
+.vscode/
+
+# ---- NetBeans ----
+nbproject/
+nbbuild/
+nbdist/
+
+# ---- Sistema operativo ----
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ============================================================
+#  SÍ se versiona (NO se ignora) aunque parezca tentador:
+#  - pom.xml de todos los módulos
+#  - código .java, .properties / .yml (menos los -local)
+#  - docker-compose.yml base  (la rúbrica EXIGE que esté en Git)
+#  - los scripts .bat de arranque (son texto, no binarios)
+#  - subtitulos-video.txt
+# ============================================================
