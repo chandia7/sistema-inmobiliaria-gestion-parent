@@ -6,9 +6,9 @@ Utilice los siguientes enlaces externos para descargar las versiones listas para
 
 | Componente | Descripción | Enlace de Descarga (Nube externa) |
 | :--- | :--- | :--- |
-| **🖥 Versión Sin Docker** <br>*(Arranque Nativo)* | Archivo `.zip` que contiene la carpeta `apps/` con los `.jar` compilados y el script `arrancar-nativo.bat` ordenado por fases. | [Descargar ZIP Nativo aquí](ENLACE_A_DRIVE_AQUÍ) |
-| **🐳 Versión Con Docker** <br>*(Avance Examen Transversal)* | Archivo `.zip` que contiene la carpeta `apps/` con los `.jar`, el archivo `docker-compose.yml` y el script automatizado `arrancar-sistema.bat`. | [Descargar ZIP Docker aquí](ENLACE_A_DRIVE_AQUÍ) |
-| **📹 Video de Defensa Técnica** <br>*(Evaluación Individual)* | Enlace directo al video explicativo donde se evidencia el funcionamiento, testing y el aporte técnico individual. **Duración ideal: 15 minutos (Máximo permitido: 18 minutos).** | [Ver Video Explicativo aquí](ENLACE_A_VIDEO_AQUÍ) |
+| **🖥 Versión Sin Docker** <br>*(Arranque Nativo)* | Archivo `.zip` que contiene la carpeta `apps/` con los `.jar` compilados y el script `arrancar-nativo.bat` ordenado por fases. | [Descargar ZIP Nativo aquí](REEMPLAZAR_CON_TU_ENLACE_DE_GOOGLE_DRIVE) |
+| **🐳 Versión Con Docker** <br>*(Avance Examen Transversal)* | Archivo `.zip` que contiene la carpeta `apps/` con los `.jar`, el archivo `docker-compose.yml` y el script automatizado `arrancar-sistema.bat`. | [Descargar ZIP Docker aquí](REEMPLAZAR_CON_TU_ENLACE_DE_GOOGLE_DRIVE) |
+| **📹 Video de Defensa Técnica** <br>*(Evaluación Individual)* | Enlace directo al video explicativo donde se evidencia el funcionamiento, testing y el aporte técnico individual. **Duración ideal: 15 minutos (Máximo permitido: 18 minutos).** El archivo de transcripción `subtitulos-video.txt` se encuentra en la raíz del repositorio. | [Ver Video Explicativo aquí](REEMPLAZAR_CON_TU_ENLACE_DE_VIDEO) |
 
 ---
 
@@ -111,6 +111,7 @@ sistema-gestion-parent/
 │
 ├── pom.xml
 ├── README.md
+├── subtitulos-video.txt
 │
 ├── docs/
 │   ├── script-bd.sql
@@ -280,7 +281,29 @@ mvn spring-boot:run
 
 ---
 
-# 10. Compilación del proyecto completo
+# 10. Puesta en marcha automatizada (Versión Nativa)
+
+El archivo `arrancar-nativo.bat` incluido en el ZIP de la Versión Sin Docker automatiza el arranque completo del sistema de forma **secuencial y cronometrada** en tres fases:
+
+| Fase | Servicios que arranca | Espera antes de continuar |
+| ---: | --------------------- | ------------------------- |
+| **1** | `eureka-server` | 20 segundos |
+| **2** | `ms-usuarios`, `ms-seguridad`, `ms-catalogo`, `ms-inventario`, `ms-promociones`, `ms-pedidos`, `ms-pagos`, `ms-logistica`, `ms-seguimiento`, `ms-notificaciones`, `ms-reportes` | 30 segundos |
+| **3** | `api-gateway` | — |
+
+Para ejecutar el sistema completo desde Windows, doble clic sobre el archivo o ejecutar desde `cmd`:
+
+```cmd
+arrancar-nativo.bat
+```
+
+> **Requisito previo:** XAMPP debe estar corriendo con el servicio MySQL activo antes de lanzar el script.
+
+La Versión Con Docker incluye el archivo `docker-compose.yml` y el script `arrancar-sistema.bat`, que levanta automáticamente los contenedores de MySQL y todos los microservicios sin necesidad de XAMPP.
+
+---
+
+# 11. Compilación del proyecto completo
 
 Desde la raíz del proyecto:
 
@@ -292,7 +315,7 @@ El proyecto compila ejecutando la suite completa de pruebas unitarias. Se implem
 
 ---
 
-# 11. Eureka Server
+# 12. Eureka Server
 
 La consola de Eureka se encuentra en:
 
@@ -319,7 +342,7 @@ MS-REPORTES
 
 ---
 
-# 12. API Gateway
+# 13. API Gateway
 
 El API Gateway permite consumir todos los microservicios desde el puerto:
 
@@ -329,27 +352,29 @@ http://localhost:8080
 
 Rutas principales:
 
-| Recurso         | URL                                          |
-| --------------- | -------------------------------------------- |
-| Seguridad / Auth | `http://localhost:8080/api/auth/registrar`  |
-| Usuarios        | `http://localhost:8080/api/usuarios`         |
-| Catálogo        | `http://localhost:8080/api/catalogo`         |
-| Inventario      | `http://localhost:8080/api/inventario`       |
-| Pedidos         | `http://localhost:8080/api/pedidos`          |
-| Pagos           | `http://localhost:8080/api/pagos`            |
-| Logística       | `http://localhost:8080/api/logistica`        |
-| Promociones     | `http://localhost:8080/api/promociones`      |
-| Seguimiento     | `http://localhost:8080/api/seguimiento`      |
-| Notificaciones  | `http://localhost:8080/api/notificaciones`   |
-| Reportes        | `http://localhost:8080/api/reportes`         |
+| Recurso          | URL                                        |
+| ---------------- | ------------------------------------------ |
+| Seguridad / Auth | `http://localhost:8080/api/auth/registrar` |
+| Usuarios         | `http://localhost:8080/api/usuarios`       |
+| Catálogo         | `http://localhost:8080/api/catalogo`       |
+| Inventario       | `http://localhost:8080/api/inventario`     |
+| Pedidos          | `http://localhost:8080/api/pedidos`        |
+| Pagos            | `http://localhost:8080/api/pagos`          |
+| Logística        | `http://localhost:8080/api/logistica`      |
+| Promociones      | `http://localhost:8080/api/promociones`    |
+| Seguimiento      | `http://localhost:8080/api/seguimiento`    |
+| Notificaciones   | `http://localhost:8080/api/notificaciones` |
+| Reportes         | `http://localhost:8080/api/reportes`       |
 
 ---
 
-# 13. Swagger
+# 14. Swagger / OpenAPI
 
-Para simplificar el uso en clases, Swagger se revisa directamente por puerto de cada microservicio.
+Cada microservicio de negocio documenta sus endpoints mediante anotaciones **`@Tag`**, **`@Operation`** y **`@ApiResponse`**, describiendo el comportamiento de cada operación y los códigos de estado HTTP esperados (`200`, `201`, `400`, `404`, `500`).
 
-| Microservicio       | Swagger                                  |
+Para revisar la documentación interactiva de cada microservicio, acceder directamente por su puerto:
+
+| Microservicio       | Swagger UI                               |
 | ------------------- | ---------------------------------------- |
 | `ms-seguridad`      | `http://localhost:8081/swagger-ui.html`  |
 | `ms-usuarios`       | `http://localhost:8082/swagger-ui.html`  |
@@ -367,7 +392,7 @@ El Gateway se usa para consumir APIs, pero no para centralizar Swagger en esta v
 
 ---
 
-# 14. Comunicación entre microservicios
+# 15. Comunicación entre microservicios
 
 El proyecto usa OpenFeign para comunicación entre servicios.
 
@@ -379,7 +404,7 @@ El proyecto usa OpenFeign para comunicación entre servicios.
 
 ---
 
-# 15. Flujo funcional principal
+# 16. Flujo funcional principal
 
 ## Paso 1: Registrar usuario (Seguridad + Perfil)
 
@@ -469,7 +494,7 @@ Content-Type: application/json
 
 ---
 
-# 16. Validaciones implementadas
+# 17. Validaciones implementadas
 
 ## `ms-seguridad` / `RegistroRequestDto`
 
@@ -546,7 +571,7 @@ Content-Type: application/json
 
 ---
 
-# 17. Manejo de errores
+# 18. Manejo de errores
 
 Cada microservicio incorpora manejo de errores mediante `@RestControllerAdvice`.
 
@@ -568,7 +593,7 @@ Ejemplo de respuesta de error:
 
 ---
 
-# 18. Logs
+# 19. Logs
 
 Cada microservicio incorpora logs básicos mediante Lombok:
 
@@ -586,7 +611,7 @@ log.error("Error al comunicarse con ms-usuarios desde ms-seguridad");
 
 ---
 
-# 19. Comandos útiles
+# 20. Comandos útiles
 
 ## Compilar todo el proyecto (incluye pruebas unitarias)
 
@@ -615,7 +640,7 @@ mvn clean install -pl ms-usuarios -am
 
 ---
 
-# 20. Documentación adicional
+# 21. Documentación adicional
 
 La documentación complementaria se encuentra en:
 
@@ -627,7 +652,7 @@ docs/script-bd.sql
 
 ---
 
-# 21. Estado actual del proyecto
+# 22. Estado actual del proyecto
 
 | Elemento                  | Estado        |
 | ------------------------- | ------------- |
@@ -651,14 +676,15 @@ docs/script-bd.sql
 | Manejo de errores         | Implementado  |
 | Logs                      | Implementado  |
 | Testing (JUnit 5/Mockito) | Implementado  |
+| Script arrancar-nativo.bat | Implementado |
+| Docker Compose            | Implementado  |
 | Frontend web              | Pendiente     |
 
 ---
 
-# 22. Próximas mejoras sugeridas
+# 23. Próximas mejoras sugeridas
 
 * Crear frontend web con Spring Boot + Thymeleaf o React.
 * Crear colección Postman con todos los endpoints documentados.
-* Crear Docker Compose para levantar todos los contenedores de base de datos y microservicios.
 * Centralización de Swagger/OpenAPI en el Gateway.
 * Agregar perfiles `dev` y `test` con base de datos H2 en memoria.
