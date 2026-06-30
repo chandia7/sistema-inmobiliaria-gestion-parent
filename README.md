@@ -170,7 +170,7 @@ sistema-gestion-parent/
     ├── pom.xml
     └── src/
 ```
-
+ 
 ---
 
 # 6. Bases de datos
