@@ -6,9 +6,9 @@ Utilice los siguientes enlaces externos para descargar las versiones listas para
 
 | Componente | Descripción | Enlace de Descarga (Nube externa) |
 | :--- | :--- | :--- |
-| **🖥 Versión Sin Docker** <br>*(Arranque Nativo)* | Archivo `.zip` que contiene la carpeta `apps/` con los `.jar` compilados y el script `arrancar-nativo.bat` ordenado por fases. | [Descargar ZIP Nativo aquí](REEMPLAZAR_CON_TU_ENLACE_DE_GOOGLE_DRIVE) |
-| **🐳 Versión Con Docker** <br>*(Avance Examen Transversal)* | Archivo `.zip` que contiene la carpeta `apps/` con los `.jar`, el archivo `docker-compose.yml` y el script automatizado `arrancar-sistema.bat`. | [Descargar ZIP Docker aquí](REEMPLAZAR_CON_TU_ENLACE_DE_GOOGLE_DRIVE) |
-| **📹 Video de Defensa Técnica** <br>*(Evaluación Individual)* | Enlace directo al video explicativo donde se evidencia el funcionamiento, testing y el aporte técnico individual. **Duración ideal: 15 minutos (Máximo permitido: 18 minutos).** El archivo de transcripción `subtitulos-video.txt` se encuentra en la raíz del repositorio. | [Ver Video Explicativo aquí](REEMPLAZAR_CON_TU_ENLACE_DE_VIDEO) |
+| **🖥 Versión Sin Docker** <br>*(Arranque Nativo)* | Archivo `.zip` que contiene la carpeta `apps/` con los `.jar` compilados y el script `arrancar-nativo.bat` ordenado por fases. | [Descargar ZIP Nativo aquí]([REEMPLAZAR_CON_TU_ENLACE_DE_GOOGLE_DRIVE](https://drive.google.com/drive/folders/1jk0AXSgZP2t4KL3rsOhlHrL89KTbPjAR?usp=sharing)) |
+| **🐳 Versión Con Docker** <br>*(Avance Examen Transversal)* | Archivo `.zip` que contiene la carpeta `apps/` con los `.jar`, el archivo `docker-compose.yml` y el script automatizado `arrancar-sistema.bat`. | [[Descargar ZIP Docker aquí](REEMPLAZAR_CON_TU_ENLACE_DE_GOOGLE_DRIVE](https://drive.google.com/drive/folders/1Pt8MghzFZ47dt-jTtea42ym2Zdo5WdQO?usp=sharing)) |
+| **📹 Video de Defensa Técnica** <br>*(Evaluación Individual)* | Enlace directo al video explicativo donde se evidencia el funcionamiento, testing y el aporte técnico individual. **Duración ideal: 15 minutos (Máximo permitido: 18 minutos).** El archivo de transcripción `subtitulos-video.txt` se encuentra en la raíz del repositorio. | [Ver Video Explicativo aquí]([REEMPLAZAR_CON_TU_ENLACE_DE_VIDEO](https://drive.google.com/drive/folders/1mJ1518gCXQSeJAw_3Bz4HbXjsbKnybih?usp=sharing)) |
 
 ---
 
